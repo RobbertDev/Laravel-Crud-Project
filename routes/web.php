@@ -13,8 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\ProductController;
+
 Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::controller(ProductController::class)->middleware(['auth'])->group(function () {
+    Route::get('/products', 'index')->name('product-overview');
+
+    Route::get('/product/{id}', 'show')->name('product-detail');
+
+    Route::get('/products/create', 'store')->name('product-create');
+    Route::post('/products/create', 'store')->name('product-create');
+
+    Route::get('/product/{id}/delete', 'destroy')->name('product-delete');
+});
 
 require __DIR__.'/auth.php';
