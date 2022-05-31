@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('products.create') }}
+            {{ __('products.edit') }}
         </h2>
     </x-slot>
 
@@ -20,8 +20,9 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <form method="POST" class="flex flex-col">
                         @csrf
-                        <input name="name" type="text" class="text mb-4" placeholder="Name" />
-                        <textarea name="description" class="textarea mb-4" placeholder="Description"></textarea>
+                        <input name="id" hidden value="{{ $product->id }}">
+                        <input name="name" type="text" class="text mb-4" placeholder="Name" value="{{ $product->name }}"/>
+                        <textarea name="description" class="textarea mb-4" placeholder="Description">{{ trim($product->description) }}</textarea>
                         @if ($errors->any())
                             <div class="alert alert-danger pb-2 text-red-600">
                                 <ul>
@@ -33,7 +34,7 @@
                         @endif
                         <div>
                             <x-button>
-                                {{ __('products.create') }}
+                                {{ __('products.save') }}
                             </x-button>
                         </div>
                     </form>

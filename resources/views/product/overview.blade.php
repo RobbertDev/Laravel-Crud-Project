@@ -32,8 +32,8 @@
                                     <div class="table-cell text-left"><a class="text-blue-600 hover:text-blue-900" href="{{ route('product-detail', ['id' => $product->id]) }}">{{ $product->name }}</a></div>
                                     <div class="table-cell text-left">{{ $product->description }}</div>
                                     <div>
-                                        <a href="{{ route('product-delete', ['id'=>$product->id]) }}">{{ __('Delete') }}</a>
-{{--                                        <a href="{{ route('product-edit', ['id'=>$product->id]) }}">{{ __('Edit') }}</a>--}}
+                                        <a href="{{ route('product-delete', ['id'=>$product->id]) }}">{{ __('Delete') }}</a> /
+                                        <a href="{{ route('product-edit', ['id'=>$product->id]) }}">{{ __('Edit') }}</a>
                                     </div>
                                 </div>
                             @endforeach

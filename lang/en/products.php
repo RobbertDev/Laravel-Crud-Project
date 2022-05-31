@@ -15,7 +15,9 @@ return [
 
     'products' => 'Products',
     'overview' => 'Product overview',
-    'detail' => 'Product detail',
     'create' => 'Create new product',
+    'detail' => 'Product detail',
+    'edit' => 'Edit product',
+    'save' => 'Save product',
 
 ];
